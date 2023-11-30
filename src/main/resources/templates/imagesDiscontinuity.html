@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Missing images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .message {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        a {
+            color: #337ab7;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #23527c;
+            text-decoration: underline;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="message">
+        <h2>Missing images</h2>
+        <p>Dear User,</p>
+        <p>We've detected that there are missing images for the following camera:</p>
+        <p><strong>Camera Name:</strong> <span th:text="${dto.name}"></span></p>
+        <p><strong>Camera Description:</strong> <span th:text="${dto.desc}"></span></p>
+        <p>To ensure you get the best experience, please check back later or visit the camera's link at another time.</p>
+        <p><strong>Camera Link:</strong> <a th:href="${dto.url}"><span th:text="${dto.url}"></span></a></p>
+        <p>Thank you for understanding,</p>
+    </div>
+</div>
+</body>
+</html>

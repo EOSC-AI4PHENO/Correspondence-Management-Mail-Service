@@ -1,0 +1,59 @@
+app:
+  schedule:
+    mail: true
+  change-password:
+    url: https://ai4pheno.seth.software/CreatePassword/
+
+server:
+  port: 6201
+
+springdoc:
+  api-docs:
+    path: /api/mail/v3/api-docs
+
+eureka:
+  client:
+    fetchRegistry: true
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    preferIpAddress: true
+
+spring:
+  application:
+    name: mail-service
+  mail:
+    host: xxxxxxx
+    port: xxxxxxx
+    username: xxxxxxx
+    password: xxxxxxx
+
+    properties:
+      mail:
+        smtp:
+          auth: true
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+  thymeleaf:
+    prefix: classpath:/templates
+
+  datasource:
+    url: jdbc:postgresql://10.0.5.231:5432/correspondence
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+      database: postgresql
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+    show-sql: false
